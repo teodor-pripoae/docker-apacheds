@@ -41,6 +41,9 @@ fi
 # There should be no correct scenario in which the pid file is present at container start
 rm -f ${APACHEDS_INSTANCE}/run/apacheds-default.pid
 
+mkdir -p ${APACHEDS_INSTANCE}/partitions/
+chown -R apacheds.apacheds ${APACHEDS_INSTANCE}/partitions/
+
 /opt/apacheds-2.0.0.AM25/bin/apacheds start default
 
 wait_for_ldap
